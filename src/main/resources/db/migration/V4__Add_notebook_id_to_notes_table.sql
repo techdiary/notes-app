@@ -1,0 +1,1 @@
+ALTER table notes add column notebook_id BIGSERIAL;
