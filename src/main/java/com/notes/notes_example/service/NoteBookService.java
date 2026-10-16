@@ -3,6 +3,7 @@ package com.notes.notes_example.service;
 import com.notes.notes_example.dto.notebook.*;
 import com.notes.notes_example.exception.ResourceNotFoundException;
 import com.notes.notes_example.mapper.NoteBookMapper;
+import com.notes.notes_example.metadata.NotebookAction;
 import com.notes.notes_example.model.Note;
 import com.notes.notes_example.model.NoteBook;
 import com.notes.notes_example.repository.NoteBookRepository;
@@ -64,6 +65,7 @@ public class NoteBookService {
         return response;
     }
 
+    @NotebookAction("create")
     public NoteBookResponse getNoteBookResponseEntity(CreateNoteBookRequest newNoteBook) {
         NoteBook noteBook = noteBookRepository.save(NoteBookMapper.toEntity(newNoteBook));
         return NoteBookMapper.toResponse(noteBook);
